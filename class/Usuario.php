@@ -77,6 +77,14 @@ class Usuario{
 		$sql->query("UPDATE usuario SET login = :login, senha = :senha WHERE id = :id",array(":login"=>$this->getLogin(),":senha"=>$this->getSenha(),":id"=>$this->getId()));
 	}
 
+	public function delete(){
+		$sql = new Sql();
+		$sql->query("DELETE FROM usuario WHERE id = :id", array(":id"=>$this->getId()));
+		$this->setId(0);
+		$this->setLogin("");
+		$this->setSenha("");
+	}
+
 	public function __toString(){
 		return json_encode(array("id"=>$this->getId(),"login"=>$this->getLogin(),"senha"=>$this->getSenha()));
 	}

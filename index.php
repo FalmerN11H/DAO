@@ -41,4 +41,10 @@ $usuario = new Usuario();
 $usuario->loadbyid(2);
 $usuario->update("novonome","novasenha");
 */
+//deletar usuario
+/*
+$usuario = new Usuario();
+$usuario->loadbyid(2);
+$usuario->delete();
+*/
 ?>
