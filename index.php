@@ -23,7 +23,22 @@ $search = Usuario::search("ma");
 echo json_encode($search);
 */
 //Carrega usuario buscando pelo login e senha
+/*
 $usuario = new Usuario();
 $usuario->login("rodrigo","rodrigosenha");
 echo $usuario;
+*/
+//Inserindo no banco
+/*
+$usuario = new Usuario();
+$usuario->setLogin("rogerio");
+$usuario->setSenha("rogeriosenha");
+$usuario->insert();
+*/
+//atualizando
+/*
+$usuario = new Usuario();
+$usuario->loadbyid(2);
+$usuario->update("novonome","novasenha");
+*/
 ?>

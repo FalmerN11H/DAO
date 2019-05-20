@@ -65,6 +65,18 @@ class Usuario{
 		}
 	}
 
+	public function insert(){
+		$sql = new Sql();
+		$sql->query("INSERT INTO usuario(login,senha) VALUES (:login,:senha)",array(":login"=>$this->getLogin(),":senha"=>$this->getSenha()));
+	}
+
+	public function update($login,$senha){
+		$this->setLogin($login);
+		$this->setSenha($senha);
+		$sql = new Sql();
+		$sql->query("UPDATE usuario SET login = :login, senha = :senha WHERE id = :id",array(":login"=>$this->getLogin(),":senha"=>$this->getSenha(),":id"=>$this->getId()));
+	}
+
 	public function __toString(){
 		return json_encode(array("id"=>$this->getId(),"login"=>$this->getLogin(),"senha"=>$this->getSenha()));
 	}
